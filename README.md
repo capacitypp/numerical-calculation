@@ -1,2 +1,3 @@
-# gpp-template
-g++ template repository
+# numerical-calculation
+Numerical Calculation Library
+
