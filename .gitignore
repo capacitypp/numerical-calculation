@@ -25,6 +25,7 @@
 
 # Executables
 Main
+Fraction
 *.exe
 *.out
 *.app
