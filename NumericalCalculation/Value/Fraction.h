@@ -32,7 +32,7 @@ public:
 		}
 	}
 
-	friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
+	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
 		if (!fraction.sign)
 			os << '-';
 		os << fraction.numerator;
