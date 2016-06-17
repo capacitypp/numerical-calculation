@@ -16,6 +16,10 @@ int main(int argc, char** argv)
 
 	cout << -a << endl;
 
+	a -= b;
+
+	cout << a << endl;
+
 	return 0;
 }
 

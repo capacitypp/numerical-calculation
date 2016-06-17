@@ -76,6 +76,9 @@ public:
 		updateSign();
 		reduce();
 	}
+	inline void operator-=(const Fraction<TYPE>& fraction) {
+		operator+=(-fraction);
+	}
 
 	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
 		if (!fraction.sign)
