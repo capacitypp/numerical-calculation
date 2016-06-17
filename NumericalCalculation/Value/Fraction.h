@@ -55,6 +55,22 @@ public:
 			denominator /= n;
 		}
 	}
+	inline void operator+=(const Fraction<TYPE>& fraction_) {
+		Fraction<TYPE> fraction(fraction_);
+		if (!sign)
+			numerator *= -1;
+		if (!fraction.sign)
+			fraction.numerator *= -1;
+		sign = true;
+		TYPE tmp = fraction.denominator;
+		fraction.denominator *= denominator;
+		fraction.numerator *= denominator;
+		denominator *= tmp;
+		numerator *= tmp;
+		numerator += fraction.numerator;
+		updateSign();
+		reduce();
+	}
 
 	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
 		if (!fraction.sign)
