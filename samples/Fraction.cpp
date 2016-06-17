@@ -6,7 +6,9 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	Fraction a;
+	Fraction<int> a(5, 6);
+
+	cout << a << endl;
 
 	return 0;
 }
