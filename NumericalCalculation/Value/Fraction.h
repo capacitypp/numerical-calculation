@@ -9,7 +9,8 @@ private:
 	TYPE numerator;
 	TYPE denominator;
 public:
-	Fraction(TYPE numerator_, TYPE denominator_) : numerator(numerator_), denominator(denominator_) {};
+	Fraction(void) : numerator(0), denominator(1) {}
+	Fraction(TYPE numerator_, TYPE denominator_) : numerator(numerator_), denominator(denominator_) {}
 	inline TYPE getNumerator(void) const { return numerator; }
 	inline TYPE getDenominator(void) const { return denominator; }
 
