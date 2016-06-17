@@ -27,13 +27,34 @@ private:
 			sign = sign ? false : true;
 		}
 	}
+	// Euclidean Algorithm
+	inline TYPE getGreatestCommonDivisor(void) const {
+		TYPE m(numerator);
+		TYPE n(denominator);
+
+		while (n) {
+			TYPE tmp(n);
+			n = m % n;
+			m = tmp;
+		}
+
+		return m;
+	}
 
 public:
 	Fraction(void) : sign(true), numerator(0), denominator(1) { updateSign(); }
-	Fraction(TYPE numerator_, TYPE denominator_) : sign(true), numerator(numerator_), denominator(denominator_) { updateSign(); }
+	Fraction(TYPE numerator_, TYPE denominator_) : sign(true), numerator(numerator_), denominator(denominator_) { updateSign(); reduce(); }
 
 	inline TYPE getNumerator(void) const { return numerator; }
 	inline TYPE getDenominator(void) const { return denominator; }
+	inline void reduce(void) {
+		TYPE n;
+
+		while ((n = getGreatestCommonDivisor()) != 1) {
+			numerator /= n;
+			denominator /= n;
+		}
+	}
 
 	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
 		if (!fraction.sign)
