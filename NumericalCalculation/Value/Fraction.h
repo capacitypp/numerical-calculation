@@ -55,6 +55,11 @@ public:
 			denominator /= n;
 		}
 	}
+	inline Fraction<TYPE> operator-(void) const {
+		Fraction<TYPE> fraction(*this);
+		fraction.sign = fraction.sign ? false : true;
+		return fraction;
+	}
 	inline void operator+=(const Fraction<TYPE>& fraction_) {
 		Fraction<TYPE> fraction(fraction_);
 		if (!sign)

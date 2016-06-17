@@ -14,6 +14,8 @@ int main(int argc, char** argv)
 
 	cout << a << endl;
 
+	cout << -a << endl;
+
 	return 0;
 }
 
