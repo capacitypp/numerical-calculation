@@ -15,12 +15,8 @@ private:
 	bool sign;
 	TYPE numerator;
 	TYPE denominator;
-public:
-	Fraction(void) : sign(true), numerator(0), denominator(1) { updateSign(); }
-	Fraction(TYPE numerator_, TYPE denominator_) : sign(true), numerator(numerator_), denominator(denominator_) { updateSign(); }
 
-	inline TYPE getNumerator(void) const { return numerator; }
-	inline TYPE getDenominator(void) const { return denominator; }
+private:
 	inline void updateSign(void) {
 		if (numerator < 0) {
 			numerator *= -1;
@@ -31,6 +27,13 @@ public:
 			sign = sign ? false : true;
 		}
 	}
+
+public:
+	Fraction(void) : sign(true), numerator(0), denominator(1) { updateSign(); }
+	Fraction(TYPE numerator_, TYPE denominator_) : sign(true), numerator(numerator_), denominator(denominator_) { updateSign(); }
+
+	inline TYPE getNumerator(void) const { return numerator; }
+	inline TYPE getDenominator(void) const { return denominator; }
 
 	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
 		if (!fraction.sign)
