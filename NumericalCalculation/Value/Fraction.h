@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+namespace NumericalCalculation
+{
+
 template <typename TYPE>
 class Fraction {
 private:
@@ -22,6 +25,8 @@ public:
 		return os;
 	}
 };
+
+}
 
 #endif
 
