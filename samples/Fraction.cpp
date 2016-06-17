@@ -7,7 +7,7 @@ using namespace NumericalCalculation;
 
 int main(int argc, char** argv)
 {
-	Fraction<int> a;
+	Fraction<int> a(-10, -2);
 
 	cout << a << endl;
 
