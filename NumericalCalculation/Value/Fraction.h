@@ -79,6 +79,18 @@ public:
 	inline void operator-=(const Fraction<TYPE>& fraction) {
 		operator+=(-fraction);
 	}
+	inline void operator*=(const Fraction<TYPE>& fraction_) {
+		Fraction<TYPE> fraction(fraction_);
+		TYPE tmp = fraction.denominator;
+		fraction.denominator = denominator;
+		denominator = tmp;
+		reduce();
+		fraction.reduce();
+		numerator *= fraction.numerator;
+		denominator *= fraction.denominator;
+		if (!fraction.sign)
+			sign = sign ? false : true;
+	}
 
 	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
 		if (!fraction.sign)

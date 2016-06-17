@@ -7,16 +7,10 @@ using namespace NumericalCalculation;
 
 int main(int argc, char** argv)
 {
-	Fraction<int> a(3, 5);
-	Fraction<int> b(-2, 3);
+	Fraction<int> a(125, 9);
+	Fraction<int> b(-405, 125);
 
-	a += b;
-
-	cout << a << endl;
-
-	cout << -a << endl;
-
-	a -= b;
+	a *= b;
 
 	cout << a << endl;
 
