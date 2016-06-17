@@ -20,11 +20,11 @@ private:
 	inline void updateSign(void) {
 		if (numerator < 0) {
 			numerator *= -1;
-			sign = sign ? false : true;
+			sign = !sign;
 		}
 		if (denominator < 0) {
 			denominator *= -1;
-			sign = sign ? false : true;
+			sign = !sign;
 		}
 	}
 	// Euclidean Algorithm
@@ -57,7 +57,7 @@ public:
 	}
 	inline Fraction<TYPE> operator-(void) const {
 		Fraction<TYPE> fraction(*this);
-		fraction.sign = fraction.sign ? false : true;
+		fraction.sign = !fraction.sign;
 		return fraction;
 	}
 	inline void operator+=(const Fraction<TYPE>& fraction_) {
@@ -89,7 +89,7 @@ public:
 		numerator *= fraction.numerator;
 		denominator *= fraction.denominator;
 		if (!fraction.sign)
-			sign = sign ? false : true;
+			sign = !sign;
 	}
 
 	inline friend std::ostream& operator<<(std::ostream& os, const Fraction<TYPE>& fraction) {
