@@ -1,5 +1,5 @@
 INCLUDE=-I../
-CPPFLAGS=$(INCLUDE) -std=c++14
+CPPFLAGS=$(INCLUDE) -std=c++14 -MD
 
 fraction :
 	$(CXX) -o Fraction $(LDFLAGS) $(CPPFLAGS) Fraction.cpp
@@ -7,4 +7,7 @@ fraction :
 clean :
 	$(RM) *.o
 	$(RM) Fraction
+	$(RM) *.d
+
+-include *.d
 
